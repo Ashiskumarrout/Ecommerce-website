@@ -1,0 +1,197 @@
+
+
+/* Sidebar Styling */
+.sidebar {
+    width: 400px;
+    padding: 20px;
+    background-color: #18212d;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    /* Ensure sidebar takes full width without blank space */
+}
+
+/* Profile Section in Sidebar */
+.sidebar .profile-section {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar .profile-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.sidebar .profile-section h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f0f0f0;
+}
+
+/* Sidebar List and Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f0f0f0;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    background-color: #32485a;
+    transform: translateX(5px);
+}
+
+/* Nested Sidebar List (Submenu) */
+.sidebar ul li ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.sidebar ul li ul li a {
+    font-size: 14px;
+    padding: 8px 20px;
+    background-color: #273848;
+    color: #d9d9d9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li ul li a:hover {
+    background-color: #3c5268;
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    margin-top: 30px; /* Adjusts the content 30px down from the navbar */
+    /* Ensure the sidebar and content area align correctly */
+}
+
+/* Content Styling */
+.content {
+    margin-left: 300px; /* Adjusted to fit the full sidebar width */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Ensures that content starts after the sidebar */
+}
+
+/* Section Content Styling */
+section.content {
+    display: block; /* Makes the section a block-level element */
+    width: 100%; /* Ensures the section takes up the full width of its container */
+    height: calc(100vh - 30px); /* Adjusts the section height to account for the margin */
+    text-align: center; /* Centers text horizontally within the section */
+    display: flex; /* Enables flexbox layout for centering content */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    flex-direction: column; /* Stacks content vertically */
+}
+/* Sidebar Styling */
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #18212d;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section in Sidebar */
+.sidebar .profile-section {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar .profile-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.sidebar .profile-section h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f0f0f0;
+}
+
+/* Sidebar List and Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f0f0f0;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    background-color: #32485a;
+    transform: translateX(5px);
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    margin-top: 30px;
+}
+
+/* Content Styling */
+.content {
+    margin-left: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Content Styling */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+

@@ -80,6 +80,7 @@ $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="account.css">
     <script defer src="script.js"></script>
     <script src="https://kit.fontawesome.com/e6878467af.js" crossorigin="anonymous"></script>
 </head>
@@ -119,19 +120,22 @@ $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
         <!-- Sidebar -->
         <!-- Sidebar -->
       <!-- Sidebar -->
+<!-- Sidebar Links -->
 <aside class="sidebar">
     <div class="profile-section">
-        <br>
-        <br>
         <img src="<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>" alt="Profile Photo" class="sidebar-profile-photo">
         <h3><?php echo htmlspecialchars($_SESSION['username']); ?></h3>
     </div>
     <ul>
+        <li><a href="#" data-target="profile-info">Profile Information</a></li>
+        <!-- Add other sidebar links here -->
         <li><a href="#" data-target="my-orders">My Orders</a></li>
         <li><a href="#" data-target="account-settings">Account Settings</a>
             <ul>
-                <li><a href="#" data-target="profile-info">Profile Information</a></li>
-                <li><a href="#" data-target="manage-address">Manage Address</a></li>
+                
+            <li><a href="manage-address.php">Manage Address</a></li>
+
+
                 <li><a href="#" data-target="pan-info">PAN Card Information</a></li>
             </ul>
         </li>
@@ -155,18 +159,24 @@ $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
     </ul>
 </aside>
 
+<!-- Main Content Area -->
+<section class="content">
+    <div id="welcome-message" class="content-section">
+        <h2>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
+        <p>Profile Photo</p>
+        <p>Select an option from the sidebar to view details.</p>
+    </div>
 
+    <div id="profile-info" class="content-section">
+        <h2>Profile Information</h2>
+        <p>Name: <?php echo htmlspecialchars($_SESSION['username']); ?></p>
+        <p>Email: <?php echo htmlspecialchars($_SESSION['email']); ?></p>
+        <img src="<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>" alt="Profile Photo">
+    </div>
 
+    <!-- Add other content sections here -->
+</section>
 
-
-        <div class="gap"></div>
-
-        <!-- Main Section -->
-        <section class="content">
-            <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
-            <img src="<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>" alt="Profile Photo" class="profile-photo">
-            <p>Select an option from the sidebar to view details.</p>
-        </section>
     </div>
     <?php else: ?>
     <!-- Login box when not logged in -->
@@ -254,23 +264,6 @@ $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
 </body>
 </html>
 
-<style>
-    .sidebar .profile-section {
-    text-align: center;
-    padding: 20px;
-}
 
-.sidebar-profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
 
-.sidebar h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #333;
-}
-</style>
+<script src="acc.js"></script>
