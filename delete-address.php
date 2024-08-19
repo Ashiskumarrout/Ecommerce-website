@@ -54,6 +54,6 @@ $conn->close();
 <body>
     <h1>Delete Address</h1>
     <p><?php echo htmlspecialchars($message); ?></p>
-    <a href="manage-address.php" class="normal">Back</a>
+    <a href="akas.php" class="normal">Back</a>
 </body>
 </html>

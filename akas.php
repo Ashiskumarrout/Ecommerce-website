@@ -136,25 +136,26 @@ $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
             <li><a href="manage-address.php">Manage Address</a></li>
 
 
-                <li><a href="#" data-target="pan-info">PAN Card Information</a></li>
+            <li><a href="account/pan-card.php">PAN Card Information</a></li>
+
             </ul>
         </li>
-        <li><a href="#" data-target="payments">Payments</a>
+        <li><a href="account/cart.html">Payments</a>
             <ul>
-                <li><a href="#" data-target="gift-cards">Gift Cards</a></li>
-                <li><a href="#" data-target="saved-upi">Saved UPI</a></li>
-                <li><a href="#" data-target="saved-cards">Saved Cards</a></li>
+                <li><a href="account/cart.html">Gift Cards</a></li>
+                <li><a href="account/cart.html">Saved UPI</a></li>
+                <li><a href="account/cart.html">Saved Cards</a></li>
             </ul>
         </li>
         <li><a href="#" data-target="help-center">Help Center</a>
             <ul>
-                <li>Phone: 700844XXXX</li>
+                <li>Phone: 7008448569</li>
                 <li>Email: support@example.com</li>
-                <li><a href="#" data-target="chat-assistant">Chat Assistant</a></li>
+                <li><a href="account/chat.php">Chat Assistant</a></li>
             </ul>
         </li>
-        <li><a href="#" data-target="feedback">Feedback & Information</a></li>
-        <li><a href="#" data-target="terms-policy">Terms & Policy</a></li>
+        <li><a href="account/fi.html">Feedback & Information</a></li>
+        <li><a href="account/Terms.html">Terms & Policy</a></li>
         <li><a href="akas.php?logout=true">Logout</a></li>
     </ul>
 </aside>

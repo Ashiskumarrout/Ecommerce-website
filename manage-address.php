@@ -43,6 +43,30 @@ $stmt->close();
 // Initialize $show_form variable
 $show_form = true;
 
+// Function to check if the form has been submitted
+function hasAddressFormBeenSubmitted($conn, $user_id) {
+    $stmt = $conn->prepare("SELECT address_form_submitted FROM users WHERE id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($submitted);
+    $stmt->fetch();
+    $stmt->close();
+    return $submitted;
+}
+
+// Function to update the form submission status
+function markAddressFormAsSubmitted($conn, $user_id) {
+    $stmt = $conn->prepare("UPDATE users SET address_form_submitted = TRUE WHERE id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->close();
+}
+
+// Check if the form has been submitted
+if (hasAddressFormBeenSubmitted($conn, $user_id)) {
+    $show_form = false;
+}
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve and sanitize form inputs
@@ -63,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($stmt->execute()) {
                 $message = "Address added successfully.";
                 $show_form = false;
+                markAddressFormAsSubmitted($conn, $user_id);
             } else {
                 $message = "Error adding address: " . $stmt->error;
             }
@@ -75,17 +100,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Fetch addresses for display
 $addresses = [];
-if (!$show_form) {
-    $sql = "SELECT * FROM addresses WHERE user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()) {
-        $addresses[] = $row;
-    }
-    $stmt->close();
+$sql = "SELECT * FROM addresses WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    $addresses[] = $row;
 }
+$stmt->close();
 
 $conn->close();
 ?>
